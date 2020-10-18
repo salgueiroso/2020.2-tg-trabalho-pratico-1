@@ -1,6 +1,8 @@
 # 2020.2-tg-trabalho-pratico-1
 
-### Definição
+# Definição
+
+### Modelo
 O trabalho utilizará lista de adjascências para representar os grafos de entrada em arquivos no seguinte formato:
 
 ![Grafo de exemplo](https://graphonline.ru/tmp/saved/fl/flByUWJgTXMJmnxB.png)
@@ -16,6 +18,19 @@ E:D,A,B
 ```
 
 > O arquivo [Grafo1.txt](https://github.com/salgueiroso/2020.2-tg-trabalho-pratico-1/blob/master/Grafo1.txt) poderá ser utilizado como exemplo de entrada para o algoritmo.
+
+### Projeto Java
+O projeto é composto de 2 sub projetos, um com a implementação solicitada na atividade e um projeto de teste (JUnit).
+
+### Estrutura Básica
+- `IGrafo` Interface com os metodos solicitados na atividade.
+- `Grafo` Classe que implementa todos os metodos relacionados aos grafos.
+- `GrafoString` Implementa a classe grafo de forma que trate cada vértice como uma string.
+- `Vertice` Modelo base de cada vertice. Esta classe armazena flags basicos relacionada a cada vertice.
+
+### Execução
+Basicamente a execução se dá instanciando a classe `GrafoString` e chamando seu método `carregarGrafoDoTexto` informando como parâmetro a string no padrão de lista encadeada como definodo no [modelo acima](#modelo) 
+
 
 # Descrição do Trabalho
 Esta atividade consiste na implementação de alguns métodos de Grafos. O objetivo é fazer com que os alunos, em grupos, pesquisem, discutam e decidam formas de implementar os conceitos de grafos visto em sala de aula.
