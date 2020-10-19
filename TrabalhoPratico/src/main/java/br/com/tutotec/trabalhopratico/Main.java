@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author acaci
+ * @author Acacio Salgueiro
  */
 public class Main {
 
@@ -29,9 +29,10 @@ public class Main {
                 grafo.carregarGrafoDoTexto(linha);
             }
             grafo.print();
-            grafo.ehCompleto();
-            grafo.ehConexo();
-            grafo.ehRegular();
+
+            System.out.println("ehCompleto: " + grafo.ehCompleto());
+            System.out.println("ehConexo: " + grafo.ehConexo());
+            System.out.println("ehRegular: " + grafo.ehRegular());
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

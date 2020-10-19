@@ -10,27 +10,33 @@ import java.util.LinkedList;
 import java.util.stream.Collectors;
 
 /**
- *
- * @author acaci
+ * Implementa a classe grafo de forma que trate cada vértice como uma string.
+ * @author Acacio Salgueiro
  */
 public class GrafoString extends Grafo<String> {
 
+     /**
+     * Realiza a carga do grafo.
+     *
+     * @param conteudo texto contendo a descrição do grafo conforme descrito no
+     * README.md
+     */
     @Override
     public void carregarGrafoDoTexto(String conteudo) {
         var linhas = conteudo.lines().collect(Collectors.toList());
         linhas.stream()
                 .map((linha) -> Arrays.asList(linha.split(":")).iterator())
-                .forEachOrdered((verticeEAdjascentes) -> {
+                .forEachOrdered((verticeEAdjacentes) -> {
 
-                    var vertice = verticeEAdjascentes.hasNext() ? verticeEAdjascentes.next() : null;
+                    var vertice = verticeEAdjacentes.hasNext() ? verticeEAdjacentes.next() : null;
 
                     if (vertice != null && !vertice.isBlank()) {
                         addVertice(vertice);
-                        var adjascentes = verticeEAdjascentes.hasNext() ? verticeEAdjascentes.next() : null;
-                        if (adjascentes != null && !adjascentes.isBlank()) {
-                            var arrAdjascentes = adjascentes.split(",");
-                            for (var adjascente : arrAdjascentes) {
-                                addVerticeAdjascente(vertice, adjascente);
+                        var adjacentes = verticeEAdjacentes.hasNext() ? verticeEAdjacentes.next() : null;
+                        if (adjacentes != null && !adjacentes.isBlank()) {
+                            var arrAdjacentes = adjacentes.split(",");
+                            for (var adjacente : arrAdjacentes) {
+                                addVerticeAdjacente(vertice, adjacente);
                             }
                         }
                     }

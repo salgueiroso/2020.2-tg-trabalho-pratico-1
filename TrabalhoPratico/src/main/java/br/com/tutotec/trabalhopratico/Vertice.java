@@ -5,15 +5,21 @@
  */
 package br.com.tutotec.trabalhopratico;
 
-import java.util.zip.CRC32;
-
 /**
- *
- * @author acaci
+ * Modelo base de cada vertice. Esta classe armazena flags basicos relacionada a cada vertice.
+ * @author Acacio Salgueiro
  * @param <TVertice>
  */
 public class Vertice<TVertice> {
+    
+    /**
+     * Valor do vértice armazenado
+     */
     private TVertice vertice;
+    
+    /**
+     * Flag com o estado de visitado
+     */
     private boolean visitado;
     
     public Vertice(TVertice vertice){
@@ -34,11 +40,21 @@ public class Vertice<TVertice> {
         this.vertice = vertice;
     }
 
+    
+    /**
+     * Compara a igualdade a partir do valor do vértice armazenado
+     * @param obj Outro vértice a comparar
+     * @return True se forem iguais. False caso contrário.
+     */
     @Override
     public boolean equals(Object obj) {
         return vertice.equals(((Vertice)obj).getVertice());
     }
 
+    /**
+     * Obtem o hash a partir do valor do vértice armazenado
+     * @return o hash
+     */
     @Override
     public int hashCode() {
         return vertice.hashCode();
