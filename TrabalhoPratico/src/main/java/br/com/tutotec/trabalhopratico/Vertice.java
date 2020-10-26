@@ -6,24 +6,37 @@
 package br.com.tutotec.trabalhopratico;
 
 /**
- * Modelo base de cada vertice. Esta classe armazena flags basicos relacionada a cada vertice.
+ * Modelo base de cada vertice. Esta classe armazena flags basicos relacionada a
+ * cada vertice.
+ *
  * @author Acacio Salgueiro
  * @param <TVertice>
  */
 public class Vertice<TVertice> {
-    
+
     /**
      * Valor do vértice armazenado
      */
     private TVertice vertice;
-    
+
     /**
      * Flag com o estado de visitado
      */
     private boolean visitado;
-    
-    public Vertice(TVertice vertice){
+
+    /**
+     * Valor da distancia para chegar até este vértice.
+     */
+    private long distancia;
+
+    /**
+     * Vertice parente.
+     */
+    private Vertice<TVertice> path;
+
+    public Vertice(TVertice vertice) {
         this.vertice = vertice;
+        distancia = 0;
     }
 
     /**
@@ -40,19 +53,20 @@ public class Vertice<TVertice> {
         this.vertice = vertice;
     }
 
-    
     /**
      * Compara a igualdade a partir do valor do vértice armazenado
+     *
      * @param obj Outro vértice a comparar
      * @return True se forem iguais. False caso contrário.
      */
     @Override
     public boolean equals(Object obj) {
-        return vertice.equals(((Vertice)obj).getVertice());
+        return vertice.equals(((Vertice) obj).getVertice());
     }
 
     /**
      * Obtem o hash a partir do valor do vértice armazenado
+     *
      * @return o hash
      */
     @Override
@@ -78,4 +92,39 @@ public class Vertice<TVertice> {
     public void setVisitado(boolean visitado) {
         this.visitado = visitado;
     }
+
+    /**
+     * @return the distancia
+     */
+    public long getDistancia() {
+        return distancia;
+    }
+
+    /**
+     * @param distancia the distancia to set
+     */
+    public void setDistancia(long distancia) {
+        this.distancia = distancia;
+    }
+
+    public void redefinir() {
+        this.distancia = 0;
+        this.visitado = false;
+        this.path = null;
+    }
+
+    /**
+     * @return the path
+     */
+    public Vertice<TVertice> getPath() {
+        return path;
+    }
+
+    /**
+     * @param path the path to set
+     */
+    public void setPath(Vertice<TVertice> path) {
+        this.path = path;
+    }
+
 }

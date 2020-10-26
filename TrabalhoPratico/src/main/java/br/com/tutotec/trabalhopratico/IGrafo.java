@@ -44,4 +44,24 @@ public interface IGrafo<TVertice> {
      * @return True se for regular. False caso contrario.
      */
     boolean ehConexo();
+    
+    /**
+     * A primeira recebe como parâmetro um vértice e o algoritmo retorna 
+     * o menor caminho deste para todos os demais vértices. Neste caso, deve-se 
+     * imprimir na tela a menor distância para cada par de vértice e o caminho 
+     * final entre eles.
+     * 
+     * @param origem
+     * @param alvo 
+     */
+    void ImprimeCaminhoParaAlvo(TVertice origem, TVertice alvo);
+    
+    /**
+     * A segunda recebe como parâmetro dois vértices e o algoritmo retorna 
+     * o menor caminho somente entre estes dois vértices. Neste caso, deve-se 
+     * imprimir na tela a menor distância entre eles e o caminho final.
+     * 
+     * @param origem 
+     */
+    void ImprimeCaminhoParaTodos(TVertice origem);
 }

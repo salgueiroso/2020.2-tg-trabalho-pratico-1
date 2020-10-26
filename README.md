@@ -2,20 +2,33 @@
 
 # Definição
 
-## Modelo
-O trabalho utilizará lista de adjascências para representar os grafos de entrada em arquivos no seguinte formato:
+## Alunos
+- **1161161268**: Acacio Ramos Salgueiro
 
-![Grafo de exemplo](https://graphonline.ru/tmp/saved/fl/flByUWJgTXMJmnxB.png)
+## Modelo
+O trabalho utilizará lista de adjacencias para representar os grafos de entrada em arquivos no seguinte formato:
+
+![Grafo de exemplo](https://graphonline.ru/tmp/saved/ww/wwRDtwuJLxmAPojQ.png)
 
 O grafo direcionado acima pode ser representado da seguinte forma:
 
 ```
-A:B,D,E
-B:A,C
-C:D,E
-D:
-E:D,A,B
+a:b(1),e(11),g(11)
+b:d(7),f(3),c(7),a(1)
+c:i(11),j(7),b(2)
+d:h(3),b(27),
+e:g(11),j(7),a(11)
+f:i(42),b(15)
+g:k(7),a(11),e(13),h(11)
+h:g(5),k(42),d(1)
+i:k(1),c(19),f(3)
+j:k(5),c(31),e(4)
+k:i(1),g(21),h(19),j(1)
+
 ```
+
+Defini a sintaxe da seguinte forma:
+`a:b(1),...`, onde `a` é o nome do vértice, `b` o vertice adjacente e `1` o custo da aresta entre estes dois vértices.
 
 > O arquivo [Grafo1.txt](https://github.com/salgueiroso/2020.2-tg-trabalho-pratico-1/blob/master/Grafo1.txt) poderá ser utilizado como exemplo de entrada para o algoritmo.
 
@@ -25,11 +38,13 @@ O projeto é composto de 2 sub projetos, um com a implementação solicitada na 
 ### Estrutura Básica
 - `IGrafo` Interface com os metodos solicitados na atividade.
 - `Grafo` Classe que implementa todos os metodos relacionados aos grafos.
-- `GrafoString` Implementa a classe grafo de forma que trate cada vértice como uma string.
+- `GrafoAtividade` Implementa a classe grafo de forma que trate cada vértice como uma string.
 - `Vertice` Modelo base de cada vertice. Esta classe armazena flags basicos relacionada a cada vertice.
 
 ### Execução
-Basicamente a execução se dá instanciando a classe `GrafoString` e chamando seu método `carregarGrafoDoTexto` informando como parâmetro a string no padrão de lista encadeada como definodo no [modelo acima](#modelo) 
+Basicamente a execução se dá instanciando a classe `GrafoAtividade` e chamando seu método `carregarGrafoDoTexto` informando como parâmetro a string no padrão de lista encadeada como definodo no [modelo acima](#modelo).
+
+O fluxo de execução pode ser feito executando o projeto teste (JUnit) ou executando a classe `Main` contida neste projeto.
 
 
 # Descrição do Trabalho

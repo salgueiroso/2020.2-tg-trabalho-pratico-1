@@ -20,7 +20,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        var grafo = new GrafoString();
+        var grafo = new GrafoAtividade();
         BufferedReader buffer;
         try {
             buffer = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\Grafo1.txt"));
@@ -28,11 +28,32 @@ public class Main {
             while ((linha = buffer.readLine()) != null) {
                 grafo.carregarGrafoDoTexto(linha);
             }
+            
+            System.out.println("================================================");
+            System.out.println("Impressão do Grafo");
             grafo.print();
+            
+            System.out.println("");
+            System.out.println("> Detalhes:");
 
-            System.out.println("ehCompleto: " + grafo.ehCompleto());
-            System.out.println("ehConexo: " + grafo.ehConexo());
-            System.out.println("ehRegular: " + grafo.ehRegular());
+            System.out.println("> O grafo é completo: " + grafo.ehCompleto());
+            System.out.println("> O grafo é conexo: " + grafo.ehConexo());
+            System.out.println("> O grafo é regular: " + grafo.ehRegular());
+
+            
+            System.out.println("================================================");
+            System.out.println("Algoritmos de menor caminho Dijkstra");
+            System.out.println("");
+            
+            System.out.println("Menor caminho entre o vértice 'a' e o vertice 'i':");            
+            grafo.ImprimeCaminhoParaAlvo("a", "i");
+            
+            System.out.println("");
+            
+            System.out.println("Menor caminho entre o vértice 'a' e todos:");            
+            grafo.ImprimeCaminhoParaTodos("a");
+            
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
