@@ -7,7 +7,7 @@ package br.com.tutotec.trabalhopratico;
 
 /**
  *
- * @author acaci
+ * @author Acacio Salgueiro
  */
 public class VerticeDijkstra<TVertice> {
 
